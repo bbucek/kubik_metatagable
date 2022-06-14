@@ -2,7 +2,7 @@
 
 require "test_helper"
 
-class PreviewableTest < ActiveSupport::TestCase
+class MetatagableTest < ActiveSupport::TestCase
   class DefaultSettings < ActiveSupport::TestCase
     setup do
       @default_example = Example.new

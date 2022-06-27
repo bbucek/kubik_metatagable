@@ -6,7 +6,7 @@ f.inputs for: [
   if Object.const_defined?('KubikMediaLibrary')
    ff.input :og_image_upload, as: 'kubik/single_media', association: ActiveModel::Naming.param_key(f.object), name: 'meta_tag'
   else
-    ff.input :og_image_upload, as: :string, label: 'OG image'
+    ff.input :og_image, as: :string, label: 'OG image'
   end
   ff.input :twitter_title, as: :string
   ff.input :twitter_description, as: :text

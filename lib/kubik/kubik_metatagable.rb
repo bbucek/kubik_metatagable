@@ -28,7 +28,6 @@ module Kubik
     end
 
     included do
-      # include Slickr::Uploadable
       has_one :meta_tag,
               class_name: "Kubik::MetaTag",
               as: :metatagable,
@@ -37,13 +36,7 @@ module Kubik
       before_save :apply_defaults
 
       accepts_nested_attributes_for :meta_tag, allow_destroy: true
-      # has_one_slickr_upload(
-      #   "#{table_name.singularize}_meta_og_image".to_sym, :og_image
-      # )
-      # has_one_slickr_upload(
-      #   "#{table_name.singularize}_meta_twitter_image".to_sym,
-      #   :twitter_image
-      # )
+
     end
 
     def apply_defaults

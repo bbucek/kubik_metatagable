@@ -3,13 +3,17 @@ f.inputs for: [
 ] do |ff|
   ff.input :og_title, as: :string, label: 'OG title'
   ff.input :og_description, as: :text, label: 'OG description'
-  ff.input :og_image, as: :string, label: 'OG image'
-end
-f.inputs for: [
-  :meta_tag, f.object.meta_tag || ::Kubik::MetaTag.new
-] do |ff|
+  if Object.const_defined?('KubikMediaLibrary')
+   ff.input :og_image_upload, as: 'kubik/single_media', association: ActiveModel::Naming.param_key(f.object), name: 'meta_tag'
+  else
+    ff.input :og_image_upload, as: :string, label: 'OG image'
+  end
   ff.input :twitter_title, as: :string
   ff.input :twitter_description, as: :text
-  ff.input :twitter_media, as: :string, label: 'Twitter media location'
+  if Object.const_defined?('KubikMediaLibrary')
+   ff.input :twitter_image_upload, as: 'kubik/single_media', label: 'Twitter media location', association: ActiveModel::Naming.param_key(f.object), name: 'meta_tag'
+  else
+    ff.input :twitter_media, as: :string
+  end
   ff.input :twitter_card_type, as: :select, collection: ::Kubik::MetaTag::TWITTER_CARD_TYPES
 end

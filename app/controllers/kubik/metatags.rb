@@ -5,10 +5,10 @@ module Kubik
   module Metatags
     extend ActiveSupport::Concern
 
-    def insert_slickr_meta_tags(inst_var)
+    def insert_kubik_meta_tags(inst_var)
       meta_tags = inst_var.meta_tag
-      @slickr_page_title = meta_tags.try(:title_tag)
-      @slickr_meta_override = {
+      @kubik_page_title = meta_tags.try(:title_tag)
+      @kubik_meta_override = {
         meta_description: meta_tags.try(:meta_description),
         og_title: meta_tags.try(:og_title),
         og_description: meta_tags.try(:og_description),

@@ -12,5 +12,6 @@ end
 
 module Kubik
   require "kubik/kubik_metatagable"
+  require "kubik/metatags"
   require "kubik/permit_additional_metatagable_admin_params"
 end

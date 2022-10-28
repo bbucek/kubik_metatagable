@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
-# Main migration for metataggable functionality
-class CreateKubikMetaTags < ActiveRecord::Migration[5.1]
-  # rubocop:disable Metrics/MethodLength
+class CreateKubikMetaTags < ActiveRecord::Migration<%= migration_version %>
   def change
     create_table :kubik_meta_tags do |t|
       t.string    :title_tag
@@ -14,11 +12,11 @@ class CreateKubikMetaTags < ActiveRecord::Migration[5.1]
       t.text      :twitter_description
       t.text      :twitter_media
       t.string    :twitter_card_type
-      t.integer   :metatagable_id
+      t.bigint    :metatagable_id
       t.string    :metatagable_type
-
       t.timestamps
     end
+
+    add_index :kubik_meta_tags, %i[metatagable_id metatagable_type]
   end
-  # rubocop:enable Metrics/MethodLength
 end

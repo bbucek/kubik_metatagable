@@ -2,7 +2,7 @@
 
 module KubikMetatagable
   class Error < StandardError; end
-  # Your code goes here...
+
   module Rails
     class Engine < ::Rails::Engine
       isolate_namespace KubikMetatagable
@@ -11,7 +11,7 @@ module KubikMetatagable
 end
 
 module Kubik
-  require "kubik/kubik_metatagable"
-  require "kubik/metatags"
+  require "kubik/metatagable"
+  require "kubik/metatagable/controller_methods"
   require "kubik/permit_additional_metatagable_admin_params"
 end

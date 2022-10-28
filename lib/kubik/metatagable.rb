@@ -1,8 +1,7 @@
 # frozen_string_literal: true
 
 module Kubik
-  # Metatagable module
-  module KubikMetatagable
+  module Metatagable
     extend ActiveSupport::Concern
 
     TITLE_FIELDS = %i[title_tag og_title twitter_title].freeze
@@ -13,7 +12,6 @@ module Kubik
       og_image twitter_media
     ].freeze
 
-    # Metatagable class methods
     class_methods do
       attr_reader :kubik_metatagable_settings
 
@@ -36,7 +34,6 @@ module Kubik
       before_save :apply_defaults
 
       accepts_nested_attributes_for :meta_tag, allow_destroy: true
-
     end
 
     def apply_defaults

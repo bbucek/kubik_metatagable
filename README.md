@@ -2,13 +2,12 @@
 
 Gem adding basic metatags configuration to Kubik projects.
 
-
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'kubik_previewable'
+gem 'kubik_metatagable'
 ```
 
 And then execute:
@@ -17,7 +16,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install kubik_previewable
+    $ gem install kubik_metatagable
 
 ## Usage
 
@@ -39,7 +38,6 @@ kubik_metatagable(
 )
 
 ```
-
 
 ### ActiveAdmin setup
 Your ActiveAdmin requires addtional allowed attributes on model setup:
@@ -96,6 +94,30 @@ And you can add similar setup to show action:
       end
     end
   end
+```
+
+To consume the meta tags in your view, add the tags partial to your applications `head` tag:
+```html
+<head>
+  ...
+  <%= render 'kubik/meta_tags' %>
+</head>
+```
+
+For your controller action, you'll need to include the appropriate view helpers and controller methods. We'd recommend creating a subclass of ApplicationController to use for your Kubik views. This will prevent any bloat in your 'admin' controllers:
+```
+class KubikController < ApplicationController
+  include ::Kubik::Metatagable::ControllerMethods
+  helper  ::Kubik::MetatagHelper
+end
+
+class PagesController < KubikController
+  def show
+    @page = Page.find(params[:id])
+    insert_kubik_meta_tags(@page)
+  end
+end
+
 ```
 
 ## Development

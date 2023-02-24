@@ -3,34 +3,29 @@
 module Kubik
   module MetatagHelper
     def kubik_page_title
-      [@kubik_page_title, @kubik_settings.try(:[], "site_title")]
+      [kubik_meta_data(:title_tag), @kubik_settings.try(:[], "site_title")]
         .reject(&:blank?)
-        .join(" - ")
+        .join(@kubik_settings.try(:[], "site_title_separator") || "|")
     end
 
     def kubik_meta_data(attr)
-      meta = kubik_settings.symbolize_keys.merge(compact_override)
+      meta = kubik_site_meta_data.symbolize_keys.merge(compact_override)
       meta[attr]
     end
 
-    def kubik_settings
-      @kubik_settings || {
-        meta_description: nil,
-        og_title: nil,
-        og_description: nil,
-        og_image: nil,
-        og_url: request.original_url,
-        twitter_title: nil,
-        twitter_description: nil,
-        twitter_image: nil,
-        twitter_card_type: nil
-      }
+    def kubik_site_meta_data
+      @kubik_site_meta_data ||=
+        if KubikMetatagable.configuration.settings_class.present?
+          KubikMetatagable.configuration.settings_class.instance.meta_tag.attributes
+        else
+          Kubik::MetaTag.new.attributes
+        end
     end
 
     private
 
     def compact_override
-      override =  @kubik_meta_override || {}
+      override = @kubik_meta_override || {}
 
       override.select do |_, value|
         value.present?

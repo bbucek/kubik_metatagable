@@ -13,7 +13,9 @@ module Kubik
     ].freeze
 
     class_methods do
-      attr_reader :kubik_metatagable_settings
+      def kubik_metatagable_settings
+        @kubik_metatagable_settings || {}
+      end
 
       private
 
@@ -34,6 +36,10 @@ module Kubik
       before_save :apply_defaults
 
       accepts_nested_attributes_for :meta_tag, allow_destroy: true
+
+      def meta_tag
+        super || build_meta_tag
+      end
     end
 
     def apply_defaults

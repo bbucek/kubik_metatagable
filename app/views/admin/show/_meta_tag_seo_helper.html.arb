@@ -1,4 +1,4 @@
-attributes_table_for object.meta_tag do
+attributes_table_for resource.meta_tag do
   row :title_tag
   row :meta_description
 end

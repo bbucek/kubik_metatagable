@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 module Kubik
-  # MetaTag class
   class MetaTag < ApplicationRecord
     self.table_name = "kubik_meta_tags"
 

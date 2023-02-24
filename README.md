@@ -21,10 +21,22 @@ Or install it yourself as:
 ## Usage
 
 ### Basic setup
-In your metatagable model add:
+Run generator to create metatags table
+
+```bash
+rails g kubik:metatagable:install
+
+rails db:migrate
+```
 
 ```
 include ::Kubik::KubikMetatagable
+kubik_metatagable
+```
+In your metatagable model add:
+
+```
+include ::Kubik::Metatagable
 kubik_metatagable
 ```
 

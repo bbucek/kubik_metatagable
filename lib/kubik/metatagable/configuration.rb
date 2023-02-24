@@ -6,7 +6,7 @@ module Kubik
       attr_accessor :settings_class
 
       def settings_class
-        @settings_class.constantize || (defined?(Kubik::Settings) ? Kubik::Settings : nil)
+        @settings_class&.constantize || (defined?(Kubik::Setting) ? Kubik::Setting : nil)
       end
     end
   end

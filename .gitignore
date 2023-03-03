@@ -12,4 +12,8 @@
 /tmp/
 /test/dummy/log
 /test/dummy/tmp
+!/test/dummy/log/.keep
+!/test/dummy/tmp/.keep
+/test/dummy/tmp/pids/*
+!/test/dummy/tmp/pids/.keep
 /test/dummy/db/test.sqlite3

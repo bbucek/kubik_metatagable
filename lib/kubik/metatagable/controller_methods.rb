@@ -4,7 +4,7 @@ module Kubik
   module Metatagable
     module ControllerMethods
       def insert_kubik_meta_tags(metatagable)
-        meta_tags = metatagable.meta_tag || Kubik::MetaTag.new
+        meta_tags = metatagable.meta_tag || ::Kubik::MetaTag.new
         @kubik_meta_override = {
           title_tag: meta_tags.title_tag,
           meta_description: meta_tags.meta_description,

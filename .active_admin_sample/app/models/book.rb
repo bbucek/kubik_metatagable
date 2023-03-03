@@ -1,5 +1,5 @@
 class Book < ApplicationRecord
-  include Kubik::KubikMetatagable
+  include Kubik::Metatagable
   kubik_metatagable
 
   GENRES = %i[thriller crime horror fantasy]

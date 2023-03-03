@@ -18,7 +18,7 @@ module Kubik
         if KubikMetatagable.configuration.settings_class.present?
           KubikMetatagable.configuration.settings_class.instance.meta_tag.attributes
         else
-          Kubik::MetaTag.new.attributes
+          ::Kubik::MetaTag.new.attributes
         end
     end
 

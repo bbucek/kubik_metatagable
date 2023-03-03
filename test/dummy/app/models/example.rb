@@ -3,6 +3,6 @@
 # Dummy Class for testing
 
 class Example < ApplicationRecord
-  include ::Kubik::KubikMetatagable
+  include ::Kubik::Metatagable
   kubik_metatagable
 end

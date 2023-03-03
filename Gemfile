@@ -5,22 +5,9 @@ source "https://rubygems.org"
 # Specify your gem's dependencies in kubik_previewable.gemspec
 gemspec
 
-gem "rake", "~> 13.0"
-
-gem "minitest", "~> 5.0"
-
-gem "rubocop", "~> 1.7"
-
-gem "activeadmin"
-
-group :development do
-  gem "devise"
+group :development, :test do
+  gem "capybara"
   gem "pry"
-  gem "rails"
+  gem "sassc-rails"
+  gem "sqlite3"
 end
-
-gem "minitest-rails"
-gem "minitest-rails-capybara"
-gem "puma"
-gem "sassc-rails"
-gem "selenium-webdriver"

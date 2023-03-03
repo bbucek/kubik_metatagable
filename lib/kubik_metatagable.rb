@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require "activeadmin"
+
 module KubikMetatagable
   class Error < StandardError; end
   class << self

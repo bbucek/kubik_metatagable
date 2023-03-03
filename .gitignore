@@ -10,3 +10,6 @@
 /pkg/
 /spec/reports/
 /tmp/
+/test/dummy/log
+/test/dummy/tmp
+/test/dummy/db/test.sqlite3

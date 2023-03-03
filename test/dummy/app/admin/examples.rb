@@ -5,7 +5,7 @@ ActiveAdmin.register Example do
     params = %i[
       dummy_title dummy_description
     ]
-    ::Kubik::PermitAdditionalAdminParams.push_to_params(Example, params)
+    ::Kubik::PermitAdditionalMetatagableAdminParams.push_to_params(Example, params)
     params
   end
   form do |f|

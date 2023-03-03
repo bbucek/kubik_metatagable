@@ -3,7 +3,7 @@
 # Dummy Class for testing
 
 class OverridenExample < Example
-  include Kubik::KubikMetatagable
+  include Kubik::Metatagable
   kubik_metatagable(
     defaults: true,
     title: ->(e) { e.dummy_title },

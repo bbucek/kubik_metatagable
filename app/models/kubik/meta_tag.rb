@@ -14,6 +14,11 @@ module Kubik
       has_one_kubik_upload(self, :twitter_image_upload)
     end
 
+    def self.ransackable_attributes(auth_object = nil)
+      ["created_at", "id", "meta_description", "metatagable_id", "metatagable_type", "og_description", "og_image", "og_title", "title_tag", "twitter_card_type", "twitter_description", "twitter_media", "twitter_title", "updated_at"]
+    end
+
+
     def self.ransackable_associations(auth_object = nil)
       ["kubik_media_upload", "uploadable"]
     end

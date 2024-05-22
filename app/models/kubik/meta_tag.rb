@@ -13,5 +13,9 @@ module Kubik
       has_one_kubik_upload(self, :og_image_upload)
       has_one_kubik_upload(self, :twitter_image_upload)
     end
+
+    def self.ransackable_associations(auth_object = nil)
+      ["kubik_media_upload", "uploadable"]
+    end
   end
 end

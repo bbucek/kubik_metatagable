@@ -7,6 +7,7 @@ class CreateKubikMetaTags < ActiveRecord::Migration<%= migration_version %>
       t.text      :meta_description
       t.text      :og_title
       t.text      :og_description
+      t.string    :og_type
       t.text      :og_image
       t.text      :twitter_title
       t.text      :twitter_description

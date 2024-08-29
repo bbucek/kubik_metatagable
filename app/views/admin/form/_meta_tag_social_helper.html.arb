@@ -3,6 +3,7 @@ f.inputs for: [
 ] do |ff|
   ff.input :og_title, as: :string, label: 'OG title'
   ff.input :og_description, as: :text, label: 'OG description'
+  ff.input :og_type, as: :string, label: 'OG type', hint: 'website, article'
   if Object.const_defined?('KubikMediaLibrary')
    ff.input :og_image_upload, as: 'kubik/single_media', association: ActiveModel::Naming.param_key(f.object), name: 'meta_tag'
   else
